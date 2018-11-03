@@ -6,11 +6,14 @@ node {
         // stage ('Clone') {
         //     checkout scm
         // }
+        tools {
+            maven 'Maven_3.5.2' 
+        }
         stage ('Build') {
             sh "echo 'shell scripts to build project...'"
             
-            withMaven(maven : 'Maven_3_5_2') {
-                sh "echo 'mvn'"
+            steps {
+                bat "echo 'mvn'"
             }
         }
         stage ('Tests') {
