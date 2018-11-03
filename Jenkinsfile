@@ -8,6 +8,10 @@ node {
         // }
         stage ('Build') {
             sh "echo 'shell scripts to build project...'"
+            
+            withMaven(maven : 'Maven_3_5_2') {
+                sh "echo 'mvn'"
+            }
         }
         stage ('Tests') {
             parallel 'static': {
